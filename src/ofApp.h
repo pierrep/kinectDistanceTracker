@@ -23,8 +23,18 @@ class ofApp : public ofBaseApp{
 
 		ofxKFW2::Device kinect;
 		float distance;
+		float new_distance;
+		float raw_distance;
 
-		ofxVideoBufferPlayer video;
-		ofxVideoBufferPlayer video2;
+		ofxVideoBufferPlayer video[4];
+		int vidIndex;
+
 		float appWidth, appHeight;
+		bool bDebug;
+
+		enum State {IDLE_CLOSE,WALK,IDLE_FAR};
+		State state;
+		float curTime, prevTime;
+		int timeOut;
+		int currentWalk;
 };
